@@ -1,34 +1,33 @@
 <?PHP
-header("Content-type: text/html; charset=utf-8");
 if(Extension_Loaded('zlib')) Ob_Start('ob_gzhandler'); 
 Header("Content-type: text/html"); 
 ?> 
 <?php  
- //è·å–æ–‡ä»¶ç›®å½•åˆ—è¡¨,è¯¥æ–¹æ³•è¿”å›æ•°ç»„  
+ //»ñÈ¡ÎÄ¼şÄ¿Â¼ÁĞ±í,¸Ã·½·¨·µ»ØÊı×é  
  function getDir($dir) {
      $dirArray[]=NULL;
      if (false != ($handle = opendir ( $dir ))) {
          $i=0;
          while ( false !== ($file = readdir ( $handle )) ) {
-             //å»æ‰"â€œ.â€ã€â€œ..â€ä»¥åŠå¸¦â€œ.xxxâ€åç¼€çš„æ–‡ä»¶
+             //È¥µô"¡°.¡±¡¢¡°..¡±ÒÔ¼°´ø¡°.xxx¡±ºó×ºµÄÎÄ¼ş
              if ($file != "." && $file != ".."&&!strpos($file,".")) {
                  $dirArray[$i]=$file;
                  $i++;
              }
          }
-         //å…³é—­å¥æŸ„
+         //¹Ø±Õ¾ä±ú
          closedir ( $handle );
      }
      return $dirArray;
  }
 
- //è·å–æ–‡ä»¶åˆ—è¡¨
+ //»ñÈ¡ÎÄ¼şÁĞ±í
 function getFile($dir) {
      $fileArray[]=NULL;
      if (false != ($handle = opendir ( $dir ))) {
          $i=0;
          while ( false !== ($file = readdir ( $handle )) ) {
-             //å»æ‰"â€œ.â€ã€â€œ..â€ä»¥åŠå¸¦â€œ.xxxâ€åç¼€çš„æ–‡ä»¶
+             //È¥µô"¡°.¡±¡¢¡°..¡±ÒÔ¼°´ø¡°.xxx¡±ºó×ºµÄÎÄ¼ş
              if ($file != "." && $file != ".."&&strpos($file,".")) {
                  $fileArray[$i]=$file;//$dir.
                  if($i==100){
@@ -37,7 +36,7 @@ function getFile($dir) {
                  $i++;
              }
          }
-         //å…³é—­å¥æŸ„
+         //¹Ø±Õ¾ä±ú
          closedir ( $handle );
      }
      return $fileArray;
@@ -77,7 +76,7 @@ function File_Write($filename,$filecode,$filemode)
 return $key;
 }
 
-//æ“ä½œå®ä¾‹
+//²Ù×÷ÊµÀı
 $baseDir="../../../";
 
 $dir=str_replace($baseDir,'',(isset($_REQUEST['dir'])?$_REQUEST['dir']:''));
@@ -97,7 +96,7 @@ header("location:?dir={$dir}");exit;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head><title>æ–‡ä»¶ç®¡ç†ç³»ç»Ÿ</title>
+<head><title>ÎÄ¼ş¹ÜÀíÏµÍ³</title>
 <style>
 body{padding:0;margin:0;font-size:12px;line-height:1.5;}
 .clr{clear:both;height:0;line-height:0;font-size:0;overflow:hidden;}
@@ -117,13 +116,13 @@ body{padding:0;margin:0;font-size:12px;line-height:1.5;}
 <div class="top">
   <div class="top1">
    <span style="float:right;">
-    ã€<a href="/" target="_blank">ç½‘ç«™é¦–é¡µ</a>ã€‘
-    ã€<a href="#t1">é€‰æ‹©æ¨¡æ¿</a>ã€‘
-    ã€<a href="#t2">æ–°å»ºæ–‡æ¡£</a>ã€‘
-    ã€<a href="#t3">å»ºæ–‡ä»¶å¤¹</a>ã€‘
-    ã€<a href="#t4">æ–°å»ºæ–‡æ¡£</a>ã€‘
+    ¡¾<a href="/" target="_blank">ÍøÕ¾Ê×Ò³</a>¡¿
+    ¡¾<a href="#t1">Ñ¡ÔñÄ£°å</a>¡¿
+    ¡¾<a href="#t2">ĞÂ½¨ÎÄµµ</a>¡¿
+    ¡¾<a href="#t3">½¨ÎÄ¼ş¼Ğ</a>¡¿
+    ¡¾<a href="#t4">ĞÂ½¨ÎÄµµ</a>¡¿
     </span>
-   å½“å‰:<?=$dir?> [<a href="?dir=<?=dirname($dir)?>/">ä¸Šä¸€çº§</a>]
+   µ±Ç°:<?=$dir?> [<a href="?dir=<?=dirname($dir)?>/">ÉÏÒ»¼¶</a>]
   </div>
 </div>
 <div class="con">
@@ -136,12 +135,12 @@ body{padding:0;margin:0;font-size:12px;line-height:1.5;}
       <form action="?act=savefile" method="post" style="padding:0;margin:0;">
       <div style="height:25px;">
       &lt;&lt;
-      æ–‡ä»¶å:<input type="text" name="file" id="file" value="<?=$file?>">
+      ÎÄ¼şÃû:<input type="text" name="file" id="file" value="<?=$file?>">
       &gt;&gt; ++++ &lt;&lt;
-      <input type="submit" value=" ä¿å­˜ ">
+      <input type="submit" value=" ±£´æ ">
       &gt;&gt; <a href="#" style="text-decoration:none" onclick="location.href='?act=delfile&dir=<?=$dir?>&amp;file='+document.getElementById('file').value;">&nbsp;</a>
       ++++ &lt;&lt;
-      <font size="3"><input id="string" type="text" size="15" onChange="n = 0;"></font> <input type="button" onclick="return findInPage(document.getElementById('string').value)" value="æœ¬é¡µé¢æŸ¥æ‰¾">
+      <font size="3"><input id="string" type="text" size="15" onChange="n = 0;"></font> <input type="button" onclick="return findInPage(document.getElementById('string').value)" value="±¾Ò³Ãæ²éÕÒ">
       &gt;&gt;
 &nbsp;&nbsp;&nbsp; <span id="place">1</span>
       </div>
@@ -155,15 +154,15 @@ body{padding:0;margin:0;font-size:12px;line-height:1.5;}
     <div class="h400">test3</div>
     <a name="t4"></a>
     <div class="h400">
-    base64_encode:<input type="text" id="be" value="" /> <input type="button" onclick="location.href='?be='+document.getElementById('be').value;" value="åŠ å¯†"/><br>
-    base64_decode:<input type="text" id="bd" value="" /> <input type="button" onclick="location.href='?bd='+document.getElementById('bd').value;" value="è§£å¯†"/><br>
+    base64_encode:<input type="text" id="be" value="" /> <input type="button" onclick="location.href='?be='+document.getElementById('be').value;" value="¼ÓÃÜ"/><br>
+    base64_decode:<input type="text" id="bd" value="" /> <input type="button" onclick="location.href='?bd='+document.getElementById('bd').value;" value="½âÃÜ"/><br>
     </div>
   </div>
   <div class="clr"></div>
 </div>
 <div class="top foot">
   <div class="top1">
-    HK - åœ¨çº¿ç¼–è¾‘å™¨
+    HK - ÔÚÏß±à¼­Æ÷
   </div>
 </div>
 <script>
@@ -226,7 +225,7 @@ var $id=function(id){return document.getElementById(id);}
 $id("editcon").onmousemove = mouseMove;
 function mouseMove(ev){  ev= ev || window.event;
       var mousePos = mouseCoords(ev);  
-      $id("place").innerHTML="x="+ mousePos.x + ",y="+ mousePos.y + ",s="+ $id("editcon").scrollTop + " ç¬¬ "+ (parseInt((mousePos.y+$id("editcon").scrollTop)/16)-4) +" è¡Œ";
+      $id("place").innerHTML="x="+ mousePos.x + ",y="+ mousePos.y + ",s="+ $id("editcon").scrollTop + " µÚ "+ (parseInt((mousePos.y+$id("editcon").scrollTop)/16)-4) +" ĞĞ";
 }   
 function mouseCoords(ev){
 if(ev.pageX || ev.pageY){return {x:ev.pageX, y:ev.pageY};}
