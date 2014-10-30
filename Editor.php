@@ -77,7 +77,7 @@ return $key;
 }
 
 //²Ù×÷ÊµÀý
-$baseDir="../../../";
+$baseDir="./";
 
 $dir=str_replace($baseDir,'',(isset($_REQUEST['dir'])?$_REQUEST['dir']:''));
 $dir =$baseDir.preg_replace("/([\.])\\1+/",'$1',$dir);
