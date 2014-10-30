@@ -8,18 +8,21 @@ define('HTTP_IMAGE', 'http://hkshop.sturgeon.mopaas.com/image/');
 define('HTTPS_SERVER', 'http://hkshop.sturgeon.mopaas.com/admin/');
 define('HTTPS_IMAGE', 'http://hkshop.sturgeon.mopaas.com/image/');
 
+//DIR_ROOT
+$dir_root = dirname(__FILE__);
+
 // DIR
-define('DIR_APPLICATION', '/var/vcap.local/dea/apps/hkshop-0-fddbb4d6f12f716633f3f0d26af162b0/app/admin/');
-define('DIR_SYSTEM', '/var/vcap.local/dea/apps/hkshop-0-fddbb4d6f12f716633f3f0d26af162b0/app/system/');
-define('DIR_DATABASE', '/var/vcap.local/dea/apps/hkshop-0-fddbb4d6f12f716633f3f0d26af162b0/app/system/database/');
-define('DIR_LANGUAGE', '/var/vcap.local/dea/apps/hkshop-0-fddbb4d6f12f716633f3f0d26af162b0/app/admin/language/');
-define('DIR_TEMPLATE', '/var/vcap.local/dea/apps/hkshop-0-fddbb4d6f12f716633f3f0d26af162b0/app/admin/view/template/');
-define('DIR_CONFIG', '/var/vcap.local/dea/apps/hkshop-0-fddbb4d6f12f716633f3f0d26af162b0/app/system/config/');
-define('DIR_IMAGE', '/var/vcap.local/dea/apps/hkshop-0-fddbb4d6f12f716633f3f0d26af162b0/app/image/');
-define('DIR_CACHE', '/var/vcap.local/dea/apps/hkshop-0-fddbb4d6f12f716633f3f0d26af162b0/app/system/cache/');
-define('DIR_DOWNLOAD', '/var/vcap.local/dea/apps/hkshop-0-fddbb4d6f12f716633f3f0d26af162b0/app/download/');
-define('DIR_LOGS', '/var/vcap.local/dea/apps/hkshop-0-fddbb4d6f12f716633f3f0d26af162b0/app/system/logs/');
-define('DIR_CATALOG', '/var/vcap.local/dea/apps/hkshop-0-fddbb4d6f12f716633f3f0d26af162b0/app/catalog/');
+define('DIR_APPLICATION', $dir_root.'/admin/');
+define('DIR_SYSTEM', $dir_root.'/system/');
+define('DIR_DATABASE', $dir_root.'/system/database/');
+define('DIR_LANGUAGE', $dir_root.'/admin/language/');
+define('DIR_TEMPLATE', $dir_root.'/admin/view/template/');
+define('DIR_CONFIG', $dir_root.'/system/config/');
+define('DIR_IMAGE', $dir_root.'/image/');
+define('DIR_CACHE', $dir_root.'/system/cache/');
+define('DIR_DOWNLOAD', $dir_root.'/download/');
+define('DIR_LOGS', $dir_root.'/system/logs/');
+define('DIR_CATALOG', $dir_root.'/catalog/');
 
 // DB
 define('DB_DRIVER', 'mysql');
